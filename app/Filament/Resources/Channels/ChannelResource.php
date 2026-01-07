@@ -24,10 +24,13 @@ class ChannelResource extends Resource
 
     protected static ?string $model = Channel::class;
 
-    protected static ?string $pluralModelLabel = 'Channels';
+    protected static ?string $pluralModelLabel = 'Channel';
 
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    public static function getNavigationIcon(): string
+    {
+        return 'heroicon-o-building-storefront';
+    }
 
     public static function form(Schema $schema): Schema
     {

@@ -21,7 +21,15 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    public static function getNavigationIcon(): string
+    {
+        return 'heroicon-o-user-plus';
+    }
+
+    public static function getNavigationGroupCollapsed(): bool
+    {
+        return false;
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -53,6 +61,12 @@ class UserResource extends Resource
         return Auth::user()?->role === 'admin';
     }
 
+    public static ?string $pluralModelLabel = "Create User";
+
+    public static function getNavigationGroup(): string|\UnitEnum|null
+    {
+        return 'Settings';
+    }
 
     public static function table(Table $table): Table
     {

@@ -23,7 +23,7 @@
 
     $labaKotor  = $revenue - $hpp;
     $labaBersih = $labaKotor - $lossDamaged;
-    $barangKeluar = $salesQty - $barangRusak;
+    $barangKeluar = $salesQty + $barangRusak;
     $daftarBarangReal = $daftarBarang - $barangKeluar;
 
     $rupiah = fn (int $v) => 'Rp. ' . number_format($v, 0, ',', '.');

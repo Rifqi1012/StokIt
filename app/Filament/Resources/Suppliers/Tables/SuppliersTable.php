@@ -46,6 +46,8 @@ class SuppliersTable
             ->recordActions([
                 EditAction::make(),
                 DeleteAction::make(),
-            ]);
+            ])
+            ->recordActionsColumnLabel("Actions")
+            ;
     }
 }

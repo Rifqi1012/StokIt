@@ -22,9 +22,13 @@ class CategoryResource extends Resource
     {
         return 'Master Data';
     }
+    
     protected static ?string $pluralModelLabel = "Category";
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    public static function getNavigationIcon(): string
+    {
+        return 'heroicon-o-inbox-stack';
+    }
 
     public static function form(Schema $schema): Schema
     {

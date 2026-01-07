@@ -30,7 +30,10 @@ class DamagedStockResource extends Resource
 
     public static ?string $pluralModelLabel = "Damaged Stock";
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    public static function getNavigationIcon(): string
+    {
+        return 'heroicon-o-archive-box-x-mark';
+    }
 
     public static function form(Schema $schema): Schema
     {

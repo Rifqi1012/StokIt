@@ -29,7 +29,11 @@ class InventoryResource extends Resource
     {
         return 'Inventory';
     }
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+
+    public static function getNavigationIcon(): string
+    {
+        return 'heroicon-o-cube';
+    }
 
     public static function form(Schema $schema): Schema
     {

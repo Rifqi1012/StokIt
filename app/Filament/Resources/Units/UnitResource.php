@@ -30,7 +30,10 @@ class UnitResource extends Resource
 
     protected static ?string $pluralModelLabel = "Unit";
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    public static function getNavigationIcon(): string
+    {
+        return 'heroicon-o-beaker';
+    }
 
     public static function form(Schema $schema): Schema
     {
