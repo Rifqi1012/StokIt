@@ -40,8 +40,6 @@
 
         @livewire(SalesRevenueChartWidget::class)
     </div>
-
-        {{-- TABLE + TABS --}}
         @livewire(SalesOrdersTableWidget::class)
 
     </div>

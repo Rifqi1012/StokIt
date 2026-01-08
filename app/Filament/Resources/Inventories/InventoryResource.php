@@ -8,11 +8,11 @@ use App\Filament\Resources\Inventories\Pages\ListInventories;
 use App\Filament\Resources\Inventories\Schemas\InventoryForm;
 use App\Filament\Resources\Inventories\Tables\InventoriesTable;
 use App\Models\Inventory;
-use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\DB;
+
 
 class InventoryResource extends Resource
 {
@@ -22,6 +22,29 @@ class InventoryResource extends Resource
     {
         return 1;
     }
+
+    public static function getNavigationBadge(): ?string
+    {
+        $count = (int) DB::table('inventories')
+            ->join('categories', 'categories.id', '=', 'inventories.category_id')
+            ->where('inventories.stock', '>', 0)
+            ->whereColumn('inventories.stock', '<=', 'categories.min_stock')
+            ->count();
+
+        return $count > 0 ? (string) $count : null;
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'danger'; 
+    }
+
+    public static function getNavigationBadgeTooltip(): ?string
+    {
+        return 'Produk yang stoknya mendekati minimum';
+    }
+
+
 
     protected static ?string $pluralModelLabel = "Inventory";
 

@@ -1,11 +1,11 @@
 <x-filament::widget>
     <x-filament::card>
         <div class="not-prose">
-            <div class="text-xl font-semibold">
+            <div style="font-weight: bold; font-size: large;"">
                 Low Stock
             </div>
 
-            <div class="mt-4 text-center text-sm font-semibold text-white">
+            <div style="margin-top: 10px">
                 {{ $this->getLowStockCount() }} products are running low
             </div>
         </div>
